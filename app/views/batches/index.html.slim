@@ -1,0 +1,19 @@
+h1 Listing batches
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @batches.each do |batch|
+      tr
+        td = link_to 'Show', batch
+        td = link_to 'Edit', edit_batch_path(batch)
+        td = link_to 'Destroy', batch, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Batch', new_batch_path

@@ -1,0 +1,19 @@
+.page-title
+  .row
+    .col.s12.m9.l10
+      h1.purple-text =t "controllers.#{params[:controller]}"
+      =render_breadcrumbs
+
+      /! BreadCrumbs
+        ul
+          li
+            a href="#"
+              i class="fa fa-home" Home
+              i class="fa fa-angle-right"
+          li
+            a href="dashboard.html" Dashboard
+
+    /! Chat button
+      .col.s12.m3.l2.right-align
+        a.btn.grey.lighten-3.grey-text.z-depth-0.chat-toggle href="#!"
+          i class="fa fa-comments"

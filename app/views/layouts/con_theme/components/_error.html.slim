@@ -1,0 +1,16 @@
+-# check if the errors exist to show it up
+-if @error_obj
+  -obj_name = @error_obj.class.name.downcase
+  #error.alert
+    -errors = @error_obj.errors.messages
+    -errors.keys.each do |attr|
+      -messages = errors[attr]
+      p
+        strong ="#{t("activerecord.attributes.#{obj_name}.#{attr}")}:"
+      -messages = [messages] unless messages.is_a? Array
+      ul
+        -messages.each do |message|
+          li =message.humanize
+
+-# Reset the variables
+-@error_obj=nil

@@ -1,0 +1,16 @@
+-@grouped_actions = [@grouped_actions] unless @grouped_actions.is_a?Array
+-@grouped_actions.each do |group|
+  li.label =group[:label]
+  -params[:action]=='index' ? action_controller = "#{params[:controller]}" : action_controller = "#{params[:controller]}.#{params[:action]}"
+  -group[:actions].each do |action|
+    li
+      -action[:action_controller] == action_controller ? additional_class = 'active' : additional_class = nil
+      a class="yay-sub-toggle waves-effect waves-amber #{additional_class}" href="#{action[:link]}"
+        i class="#{action[:icon]}"
+        -if action[:del]
+          del=action[:name]
+        -else
+          =action[:name]
+
+-# Reset partials variables
+-@grouped_actions=nil

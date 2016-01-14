@@ -1,0 +1,9 @@
+= form_for @batch do |f|
+  - if @batch.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@batch.errors.count, "error")} prohibited this batch from being saved:"
+      ul
+        - @batch.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit

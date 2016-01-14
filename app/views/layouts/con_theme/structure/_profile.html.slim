@@ -1,0 +1,21 @@
+/ul
+/  li
+/  li.user
+/    /! User Profile link
+/    a.dropdown-button href="#!" data-activates="user-dropdown"
+/      /image_tag @current_user.picture, class: 'circle grey lighten-3'
+/      /@current_user.name
+/      i.mdi-navigation-expand-more.right
+/
+/    /! User Profile actions
+/    ul#user-dropdown.dropdown-content
+/      -profile_actions.each do |profile_action|
+/        li
+/          a.amber-text.text-darken-3 href="#{profile_action[:link]}"
+/            i class="#{profile_action[:icon]}"
+/            =profile_action[:name]
+/      li.divider
+/      li
+/        a.amber-text.text-darken-3 href="#{destroy_user_session_path}"
+/          i.fa.fa-sign-out
+/          | Logout

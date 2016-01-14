@@ -1,0 +1,15 @@
+aside.yaybar.yay-shrink.yay-hide-to-small.yay-gestures.yay-light
+  /! Brand & Close AsideMenu
+  .top
+    =render 'layouts/con_theme/structure/animated_exit'
+
+  /! Menu Actions list
+  .nano
+    .nano-content
+      ul.white
+        /if @current_user.admin?
+        /  @grouped_actions = admin_actions
+        /else
+        -@grouped_actions = aside_grouped_actions
+
+        =render 'layouts/con_theme/components/nav_list'
