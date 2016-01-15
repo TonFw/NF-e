@@ -4,7 +4,7 @@ class Batch < ActiveRecord::Base
   include ProcessBatchDir
   include ProcessBatchCommands
 
-  # Relations
+  # Associations
   has_many :invoices
 
   # Upload GEM setting

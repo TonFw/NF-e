@@ -9,10 +9,12 @@ module ProcessBatch
     # Setup it Invoices
     files.each do |file|
       next if file.index('.xml').nil?
-      hash_invoice = Hash.from_xml(File.open(file)).deep_symbolize_keys!
+      nfe_xml = File.open(file, 'rb').read
+      hash_invoice = Hash.from_xml(nfe_xml).deep_symbolize_keys!
 
-      invoice_params = {nfe_code: hash_invoice[:NFe][:infNFe][:Id], json_body: hash_invoice.to_json}
-      self.invoices << Invoice.new(invoice_params)
+      invoice_params = {nfe_code: hash_invoice[:NFe][:infNFe][:Id], body: nfe_xml}
+      current_invoice = Invoice.new(invoice_params)
+      self.invoices << current_invoice
     end
   end
 end

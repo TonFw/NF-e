@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20160114214331) do
 
   create_table "invoices", force: :cascade do |t|
     t.string   "nfe_code",   limit: 75,    null: false
-    t.text     "json_body",  limit: 65535
+    t.text     "body",       limit: 65535
     t.integer  "batch_id",   limit: 4,     null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
