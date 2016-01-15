@@ -9,5 +9,7 @@ module ProcessBatchCommands
 
   # Remove the unzipped files
   def remove_tmp
+    cmd = "rm -rf #{unzipped_target_folder}"
+    system cmd
   end
 end
