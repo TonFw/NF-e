@@ -1,6 +1,8 @@
 class Batch < ActiveRecord::Base
   # Concerns Dependencies
   include ProcessBatch
+  include ProcessBatchDir
+  include ProcessBatchCommands
 
   # Relations
   has_many :invoices
