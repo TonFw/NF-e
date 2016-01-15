@@ -48,7 +48,8 @@ class BatchesController < ApplicationController
   end
 
   # GET /batches/1/process
-  def process_nfes
+  def process_nfe
+    @batch.process_it
   end
 
   private

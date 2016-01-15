@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Specific Batches Scope
   resources :batches do
     resources :invoices
-    get 'process' => 'batches#process_nfes', as: :process
+    get 'process' => 'batches#process_nfe', as: :process
   end
 
   # RootRoute to batch upload

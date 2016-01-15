@@ -14,20 +14,21 @@
 ActiveRecord::Schema.define(version: 20160114214331) do
 
   create_table "additional_infos", force: :cascade do |t|
-    t.string   "key",        limit: 55,    null: false
-    t.text     "value",      limit: 65535
-    t.integer  "invoice_id", limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "key",                       limit: 55,    null: false
+    t.text     "value",                     limit: 65535
+    t.integer  "parent_additional_info_id", limit: 4
+    t.integer  "invoice_id",                limit: 4
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   add_index "additional_infos", ["invoice_id"], name: "index_additional_infos_on_invoice_id", using: :btree
 
   create_table "batches", force: :cascade do |t|
     t.boolean  "processed"
+    t.string   "attached",   limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.string   "attached",   limit: 255
   end
 
   create_table "invoices", force: :cascade do |t|
