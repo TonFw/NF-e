@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160114162524) do
+ActiveRecord::Schema.define(version: 20160114214331) do
 
   create_table "additional_infos", force: :cascade do |t|
     t.string   "key",        limit: 55,    null: false
     t.text     "value",      limit: 65535
-    t.integer  "invoice_id", limit: 4,     null: false
+    t.integer  "invoice_id", limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
@@ -24,12 +24,10 @@ ActiveRecord::Schema.define(version: 20160114162524) do
   add_index "additional_infos", ["invoice_id"], name: "index_additional_infos_on_invoice_id", using: :btree
 
   create_table "batches", force: :cascade do |t|
-    t.datetime "attached_updated_at",               null: false
-    t.integer  "attached_file_size",    limit: 4,   null: false
-    t.string   "attached_content_type", limit: 255, null: false
-    t.string   "attached_file_name",    limit: 255, null: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.boolean  "processed"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "attached",   limit: 255
   end
 
   create_table "invoices", force: :cascade do |t|

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "batches/edit", type: :view do
   before(:each) do
-    @batch = assign(:batch, Batch.create!())
+    @batch = assign(:batch, BatchZip.create!())
   end
 
   it "renders the edit batch form" do

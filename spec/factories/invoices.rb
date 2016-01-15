@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :invoice do
+  factory :invoices do
     nfe_code "MyString"
 batch nil
   end

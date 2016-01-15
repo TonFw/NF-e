@@ -10,12 +10,33 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ * Frameworks
  *= require font-awesome
+ *= require nprogress
+ *= require nprogress-bootstrap
  *= require admin_materialize
  *
+ * Project
  *= stub scaffolds
  *= require_tree .
  *= require_self
  */
 
 @import 'ionicons';
+
+i.large-icon {
+  font-size: 1.7rem;
+
+  &.ion-ios-eye,
+  &.ion-ios-bolt-outline {
+    font-size: 2rem;
+  }
+}
+
+.row {
+  margin-bottom: 25px;
+}
+
+.divider {
+  margin: 25px 0;
+}

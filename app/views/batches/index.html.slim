@@ -1,19 +1,36 @@
-h1 Listing batches
+h1.center
+  i.ion-filing
+  = ' Lista de Lotes Enviados'
 
-table
+= link_to new_batch_path, class: 'right btn-floating btn-large white-text' do
+  i.ion-plus-round
+
+.divider
+
+table.table-striped
   thead
     tr
-      th
-      th
-      th
+      th Data
+      th Horário
+      th.center Processar
+      th.center Visualizar
+      th.center Deletar
 
   tbody
     - @batches.each do |batch|
       tr
-        td = link_to 'Show', batch
-        td = link_to 'Edit', edit_batch_path(batch)
-        td = link_to 'Destroy', batch, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Batch', new_batch_path
+        td = batch.created_at.strftime('%d/%m/%Y')
+        td = batch.created_at.strftime('%H:%M:%S')
+        td.center
+          -if batch.processed?
+            =link_to root_path do
+              i.large-icon.ion-flash-off
+          -else
+            =link_to batch_process_path(batch) do
+              i.large-icon.ion-flash
+        td.center
+          = link_to batch do
+            i.large-icon.ion-ios-eye
+        td.center
+          = link_to batch, method: :delete, data: {confirm: 'Certeza de que quer Deletar?'} do
+            i.large-icon.ion-trash-b.red-text

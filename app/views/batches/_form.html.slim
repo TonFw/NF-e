@@ -1,9 +1,35 @@
 = form_for @batch do |f|
-  - if @batch.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@batch.errors.count, "error")} prohibited this batch from being saved:"
-      ul
-        - @batch.errors.full_messages.each do |message|
+  - current_obj = @batch
+  - if current_obj.errors.any?
+    .alert.alert-border-left
+      strong = "Atenção. #{pluralize(current_obj.errors.count, "erro")} impediu o Projeto de ser registrada:"
+      ul.style_warning_list
+        - current_obj.errors.full_messages.each do |message|
           li = message
 
-  .actions = f.submit
+  .spacing_rows
+    .row
+      .col.l8.offset-l2
+        .upload-avatar.file-field.input-field
+          input class="file-path validate" type="text"
+          .btn
+            span File
+            = f.file_field :attached, onchange: 'show_brand(this, "#work_flow")'
+
+    .row
+      .col.l6.offset-l4
+        =f.submit 'Submeter Lote para Processamento', class: 'btn'
+
+
+javascript:
+  // show the Ad dynamic after it "upload_intent"
+  function show_brand(input, img_ref) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.file-path').val(input.files[0].name);
+        $(img_ref).attr('src', e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }

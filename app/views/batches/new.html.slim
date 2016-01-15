@@ -1,5 +1,9 @@
-h1 New batch
+h1.center
+  i.ion-upload
+  = ' Upload de Novo Lote de Notas'
 
-== render 'form'
+= render 'form'
 
-= link_to 'Back', batches_path
+.row
+  = link_to batches_path, class: 'btn-floating btn-large waves-effect waves-light blue-grey' do
+    i.ion-android-arrow-back

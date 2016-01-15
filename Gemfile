@@ -3,9 +3,9 @@ ruby '2.2.3'
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.4'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.3.13', '< 0.5'
+gem 'mysql2', '~> 0.3.18'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,13 +43,16 @@ gem 'thin', '~> 1.6', group: :development
 gem 'colorize', '~> 0.7.7'
 
 # Upload GEM
-gem 'paperclip', '~> 4.3', '>= 4.3.2'
+gem 'carrierwave', '~> 0.10.0'
 
 # Faster & easier HTML
 gem 'slim-rails', '~> 3.0.1'
 
 # IconFonts - FontAwesome
 gem 'font-awesome-rails', '~> 4.5'
+
+# Animated Progress link/screen transaction
+gem 'nprogress-rails', '~> 0.1.6.7'
 
 # AdminTheme
 gem 'ionicons-rails', '~> 2.0.0'

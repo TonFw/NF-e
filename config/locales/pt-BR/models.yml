@@ -1,0 +1,19 @@
+# encoding: UTF-8
+# pt-BR translations for Models
+pt-BR:
+  activerecord:
+    models:
+      batch: Lote
+      invoice: Nota Fiscal
+
+    attributes:
+
+  # BatchZip -----------------------------------------------------
+      batch:
+        attached: Anexo
+        attached_content_type: Extensão do Arquivo
+
+  # Invoice -----------------------------------------------------
+      invoice:
+        nfe_code: Código da Nota Fiscal
+        batch_id: Lote de Referência

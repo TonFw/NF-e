@@ -1,6 +1,34 @@
-p#notice = notice
+h1.center
+  i.ion-filing
+  = ' Notas Fiscais Processadas'
+h3.center
+  =" Lote: #{@batch.created_at.strftime('%d/%m/%Y')} - #{@batch.created_at.strftime('%H:%M:%S')}"
 
+  = link_to new_batch_path, class: 'right btn-floating btn-large white-text' do
+    i.ion-plus-round
 
-= link_to 'Edit', edit_batch_path(@batch)
-'|
-= link_to 'Back', batches_path
+.divider
+
+.row
+  -if @batch.invoices.empty?
+     =link_to batch_process_path(@batch.id), class: 'btn col l3 offset-l4' do
+       i.large-icon.ion-flash
+       = " Processar Lote"
+  -else
+    table.table-striped
+      thead
+        tr
+          th Código NF-e
+          th Data
+          th Horário
+          th.center Visualizar
+
+      tbody
+        - @batch.invoices.each do |invoice|
+          tr
+            td = invoice.nfe_code
+            td = invoice.created_at.strftime('%d/%m/%Y')
+            td = invoice.created_at.strftime('%H:%M:%S')
+            td.center
+              = link_to batch do
+                i.large-icon.ion-ios-eye

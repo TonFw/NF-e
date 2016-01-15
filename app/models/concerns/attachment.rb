@@ -7,8 +7,9 @@ module Attachment
                       path: "#{self.to_s.downcase.pluralize}/:attachment/:id/:style/#{self.to_s.downcase}_work_flow",
                       styles: { original: '300x300>', thumb: '75x75>' },
                       default_url: 'defaults/how_works_flow.png', if: :attached?
-    validates_attachment_content_type :attached, content_type: /\Aimage\/.*\Z/, if: :attached?
-    validates_attachment_size :attached, less_than: 200.kilobyte, if: :attached?
+
+    validates_attachment :attached, presence: true,
+                         content_type: { content_type: 'application/zip' }, if: :attached?
   end
 
   def attached?

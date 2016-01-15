@@ -1,5 +1,7 @@
 class Batch < ActiveRecord::Base
-  include Attachment
-
+  # Relations
   has_many :invoices
+
+  # Upload GEM setting
+  mount_uploader :attached, AttachmentUploader
 end
