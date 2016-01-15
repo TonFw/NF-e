@@ -1,5 +1,5 @@
 class BatchesController < ApplicationController
-  before_action :set_batch, only: [:show, :edit, :update, :destroy]
+  before_action :set_batch, only: [:show, :edit, :process_nfe, :destroy]
 
   # GET /batches
   # GET /batches.json
@@ -55,7 +55,8 @@ class BatchesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_batch
-      @batch = Batch.find(params[:id])
+      params[:id].nil? ? batch_id = params[:batch_id] : batch_id = params[:id]
+      @batch = Batch.find(batch_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

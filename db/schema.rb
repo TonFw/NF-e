@@ -32,10 +32,11 @@ ActiveRecord::Schema.define(version: 20160114214331) do
   end
 
   create_table "invoices", force: :cascade do |t|
-    t.string   "nfe_code",   limit: 75, null: false
-    t.integer  "batch_id",   limit: 4,  null: false
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.string   "nfe_code",   limit: 75,    null: false
+    t.text     "json_body",  limit: 65535
+    t.integer  "batch_id",   limit: 4,     null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "invoices", ["batch_id"], name: "index_invoices_on_batch_id", using: :btree
